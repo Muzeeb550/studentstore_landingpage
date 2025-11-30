@@ -8,7 +8,6 @@ import TermsOfService from './pages/TermsOfService'
 
 function App() {
   return (
-    <Router>
       <div className="app">
         <Navbar />
         <Routes>
@@ -18,7 +17,6 @@ function App() {
         </Routes>
         <Footer />
       </div>
-    </Router>
   )
 }
 
