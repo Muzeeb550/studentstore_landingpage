@@ -12,6 +12,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#8B5CF6" />
     
+    <!-- Google Search Console Verification -->
+    <meta name="google-site-verification" content="kOm2zyD3ogvHmu9TWLALV0_8kP5R84QQixItir-Tfkc" />
+    
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://studentstore-landingpage.vercel.app/" />
@@ -34,11 +37,10 @@
     <meta name="apple-mobile-web-app-title" content="StudentStore" />
     <meta name="application-name" content="StudentStore" />
     
-   <!-- Favicon -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="shortcut icon" href="/favicon-96x96.png" />
-
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://studentstore-landingpage.vercel.app/" />
@@ -47,7 +49,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     
-    <!-- Structured Data (JSON-LD) -->
+    <!-- Structured Data: Mobile Application -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -76,48 +78,49 @@
       }
     }
     </script>
-    <meta name="google-site-verification" content="kOm2zyD3ogvHmu9TWLALV0_8kP5R84QQixItir-Tfkc" />
-  </head>
-  <!-- ADD THIS BEFORE </head> tag -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "StudentStore",
-  "alternateName": ["StudentStore India", "SkillStore"],
-  "url": "https://studentstore-landingpage.vercel.app",
-  "logo": "https://studentstore-landingpage.vercel.app/favicon-96x96.png",
-  "description": "India's #1 student shopping and learning platform. By students, for students.",
-  "foundingDate": "2025",
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "email": "studentstoreforstudents@gmail.com",
-    "contactType": "Customer Service",
-    "areaServed": "IN",
-    "availableLanguage": "English"
-  },
-  "sameAs": [
-    "https://indusapp.store/vfmtlvuw"
-  ]
-}
-</script>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "StudentStore",
-  "url": "https://studentstore-landingpage.vercel.app",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": {
-      "@type": "EntryPoint",
-      "urlTemplate": "https://studentstore-landingpage.vercel.app/?q={search_term_string}"
-    },
-    "query-input": "required name=search_term_string"
-  }
-}
-</script>
+    <!-- Structured Data: Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "StudentStore",
+      "alternateName": ["StudentStore India", "SkillStore"],
+      "url": "https://studentstore-landingpage.vercel.app",
+      "logo": "https://studentstore-landingpage.vercel.app/favicon-96x96.png",
+      "description": "India's #1 student shopping and learning platform. By students, for students.",
+      "foundingDate": "2025",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "studentstoreforstudents@gmail.com",
+        "contactType": "Customer Service",
+        "areaServed": "IN",
+        "availableLanguage": "English"
+      },
+      "sameAs": [
+        "https://indusapp.store/vfmtlvuw"
+      ]
+    }
+    </script>
+
+    <!-- Structured Data: Website -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "StudentStore",
+      "url": "https://studentstore-landingpage.vercel.app",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://studentstore-landingpage.vercel.app/?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+  </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
