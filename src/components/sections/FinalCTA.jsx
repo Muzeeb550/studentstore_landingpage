@@ -1,10 +1,11 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { Download, Rocket, CheckCircle, Sparkles, TrendingUp, Shield, Zap } from 'lucide-react'
 
 function FinalCTA() {
   return (
     <section style={{
-      padding: 'clamp(3rem, 6vw, 5rem) 0',
+      padding: 'clamp(3.5rem, 7vw, 6rem) 0',
       background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
       position: 'relative',
       overflow: 'hidden'
@@ -21,13 +22,12 @@ function FinalCTA() {
           repeat: Infinity,
           ease: "easeInOut"
         }}
-        className="cta-circle-1"
         style={{
           position: 'absolute',
           top: '-10%',
           right: '-5%',
-          width: 'clamp(250px, 40vw, 400px)',
-          height: 'clamp(250px, 40vw, 400px)',
+          width: 'clamp(300px, 45vw, 450px)',
+          height: 'clamp(300px, 45vw, 450px)',
           background: 'rgba(255, 255, 255, 0.1)',
           borderRadius: '50%',
           filter: 'blur(60px)',
@@ -46,13 +46,12 @@ function FinalCTA() {
           repeat: Infinity,
           ease: "easeInOut"
         }}
-        className="cta-circle-2"
         style={{
           position: 'absolute',
           bottom: '-10%',
           left: '-5%',
-          width: 'clamp(200px, 35vw, 350px)',
-          height: 'clamp(200px, 35vw, 350px)',
+          width: 'clamp(250px, 40vw, 400px)',
+          height: 'clamp(250px, 40vw, 400px)',
           background: 'rgba(255, 255, 255, 0.1)',
           borderRadius: '50%',
           filter: 'blur(60px)',
@@ -60,7 +59,34 @@ function FinalCTA() {
         }}
       />
 
-      <div className="container" style={{ 
+      {/* Floating particles */}
+      {[...Array(8)].map((_, i) => (
+        <motion.div
+          key={i}
+          animate={{
+            y: [0, -40, 0],
+            opacity: [0.3, 0.7, 0.3],
+          }}
+          transition={{
+            duration: 3 + i * 0.5,
+            repeat: Infinity,
+            ease: 'easeInOut',
+            delay: i * 0.3
+          }}
+          style={{
+            position: 'absolute',
+            width: '12px',
+            height: '12px',
+            borderRadius: '50%',
+            background: 'rgba(255, 255, 255, 0.4)',
+            left: `${10 + i * 12}%`,
+            top: `${15 + (i % 3) * 25}%`,
+            pointerEvents: 'none'
+          }}
+        />
+      ))}
+
+      <div style={{ 
         position: 'relative', 
         zIndex: 1,
         maxWidth: '1200px',
@@ -72,8 +98,10 @@ function FinalCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center"
-          style={{ color: 'white' }}
+          style={{ 
+            textAlign: 'center',
+            color: 'white' 
+          }}
         >
           {/* Trust Badge */}
           <motion.div
@@ -84,23 +112,34 @@ function FinalCTA() {
             style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: 'clamp(0.4rem, 1vw, 0.5rem)',
-              background: 'rgba(255, 255, 255, 0.2)',
+              gap: '0.75rem',
+              background: 'rgba(255, 255, 255, 0.25)',
               backdropFilter: 'blur(10px)',
-              padding: 'clamp(0.4rem, 1vw, 0.5rem) clamp(1rem, 2.5vw, 1.5rem)',
+              padding: '0.75rem 1.5rem',
               borderRadius: '2rem',
-              marginBottom: 'clamp(1.5rem, 3vw, 2rem)',
+              marginBottom: '2rem',
               border: '1px solid rgba(255, 255, 255, 0.3)',
               flexWrap: 'wrap',
               justifyContent: 'center'
             }}
           >
-            <span style={{ fontSize: 'clamp(1rem, 2vw, 1.2rem)' }}>✨</span>
-            <span style={{ 
-              fontWeight: '600',
-              fontSize: 'clamp(0.9rem, 2vw, 1rem)'
+            <div style={{
+              width: '40px',
+              height: '40px',
+              borderRadius: '50%',
+              background: 'rgba(255, 255, 255, 0.2)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
             }}>
-              Trusted by 100's of Students
+              <Sparkles size={20} color="white" strokeWidth={2.5} />
+            </div>
+            <span style={{ 
+              fontWeight: '700',
+              fontSize: 'clamp(1rem, 2.25vw, 1.15rem)',
+              letterSpacing: '0.02em'
+            }}>
+              Trusted by 100+ Students Across India
             </span>
           </motion.div>
 
@@ -111,15 +150,18 @@ function FinalCTA() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
             style={{
-              fontSize: 'clamp(1.75rem, 5vw, 3rem)',
+              fontSize: 'clamp(2rem, 6vw, 3.5rem)',
               fontWeight: '800',
-              marginBottom: 'clamp(0.75rem, 2vw, 1rem)',
+              marginBottom: '1rem',
               color: 'white',
-              lineHeight: '1.2',
-              padding: '0 1rem'
+              lineHeight: '1.15',
+              letterSpacing: '-0.02em',
+              textShadow: '0 4px 20px rgba(0, 0, 0, 0.15)'
             }}
           >
-            Start Your Smart Shopping Journey Today!
+            Start Your Smart Shopping
+            <br />
+            Journey Today!
           </motion.h2>
 
           {/* Subheading */}
@@ -129,13 +171,13 @@ function FinalCTA() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
             style={{
-              fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
-              marginBottom: 'clamp(2rem, 4vw, 2.5rem)',
+              fontSize: 'clamp(1.1rem, 2.75vw, 1.35rem)',
+              marginBottom: 'clamp(2.5rem, 5vw, 3rem)',
               opacity: 0.95,
-              maxWidth: '700px',
-              margin: '0 auto clamp(2rem, 4vw, 2.5rem)',
+              maxWidth: '750px',
+              margin: '0 auto clamp(2.5rem, 5vw, 3rem)',
               lineHeight: '1.6',
-              padding: '0 1rem'
+              fontWeight: '500'
             }}
           >
             Join thousands of students who save time and money with StudentStore
@@ -149,10 +191,10 @@ function FinalCTA() {
             transition={{ duration: 0.6, delay: 0.3 }}
             style={{
               display: 'flex',
-              gap: 'clamp(0.75rem, 2vw, 1rem)',
+              gap: '1rem',
               justifyContent: 'center',
               flexWrap: 'wrap',
-              marginBottom: 'clamp(2rem, 4vw, 3rem)',
+              marginBottom: 'clamp(2.5rem, 5vw, 3.5rem)',
               padding: '0 1rem'
             }}
           >
@@ -164,20 +206,21 @@ function FinalCTA() {
                 display: 'inline-flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                gap: 'clamp(0.5rem, 1.5vw, 0.75rem)',
-                padding: 'clamp(1rem, 2.5vw, 1.25rem) clamp(1.5rem, 4vw, 2.5rem)',
+                gap: '0.75rem',
+                padding: 'clamp(1.125rem, 2.75vw, 1.375rem) clamp(2rem, 4.5vw, 2.75rem)',
                 background: 'white',
                 color: '#8B5CF6',
-                borderRadius: 'clamp(0.75rem, 2vw, 1rem)',
+                borderRadius: '1rem',
                 fontWeight: '700',
-                fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
+                fontSize: 'clamp(1.05rem, 2.5vw, 1.25rem)',
                 textDecoration: 'none',
-                boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)',
-                whiteSpace: 'nowrap',
-                minWidth: 'clamp(160px, 30vw, 200px)'
+                boxShadow: '0 15px 40px rgba(0, 0, 0, 0.3)',
+                border: 'none',
+                minWidth: 'clamp(180px, 35vw, 220px)',
+                transition: 'all 0.3s ease'
               }}
             >
-              <span style={{ fontSize: 'clamp(1.2rem, 3vw, 1.5rem)' }}>📥</span>
+              <Download size={24} strokeWidth={2.5} />
               Download App
             </motion.a>
 
@@ -191,20 +234,21 @@ function FinalCTA() {
                 display: 'inline-flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                gap: 'clamp(0.5rem, 1.5vw, 0.75rem)',
-                padding: 'clamp(1rem, 2.5vw, 1.25rem) clamp(1.5rem, 4vw, 2.5rem)',
+                gap: '0.75rem',
+                padding: 'clamp(1.125rem, 2.75vw, 1.375rem) clamp(2rem, 4.5vw, 2.75rem)',
                 background: 'transparent',
                 color: 'white',
-                border: 'clamp(2px, 0.4vw, 3px) solid white',
-                borderRadius: 'clamp(0.75rem, 2vw, 1rem)',
+                border: '3px solid white',
+                borderRadius: '1rem',
                 fontWeight: '700',
-                fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
+                fontSize: 'clamp(1.05rem, 2.5vw, 1.25rem)',
                 textDecoration: 'none',
-                whiteSpace: 'nowrap',
-                minWidth: 'clamp(160px, 30vw, 200px)'
+                minWidth: 'clamp(180px, 35vw, 220px)',
+                backdropFilter: 'blur(5px)',
+                transition: 'all 0.3s ease'
               }}
             >
-              <span style={{ fontSize: 'clamp(1.2rem, 3vw, 1.5rem)' }}>🚀</span>
+              <Rocket size={24} strokeWidth={2.5} />
               Try Web App
             </motion.a>
           </motion.div>
@@ -216,61 +260,163 @@ function FinalCTA() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
             style={{
-              display: 'flex',
-              gap: 'clamp(0.5rem, 1.5vw, 1rem)',
-              justifyContent: 'center',
-              flexWrap: 'wrap',
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))',
+              gap: 'clamp(1rem, 2.5vw, 1.25rem)',
+              maxWidth: '1000px',
+              margin: '0 auto',
               padding: '0 1rem'
             }}
           >
             {[
-              '✓ 100% Free Forever',
-              '✓ No Credit Card Required',
-              '✓ Student Verified Reviews',
-              '✓ AI-Powered Recommendations'
-            ].map((feature, index) => (
-              <div
+              { 
+                icon: Zap, 
+                text: '100% Free Forever',
+                color: '#F59E0B'
+              },
+              { 
+                icon: Shield, 
+                text: 'No Credit Card Required',
+                color: '#10B981'
+              },
+              { 
+                icon: CheckCircle, 
+                text: 'Student Verified Reviews',
+                color: '#8B5CF6'
+              },
+              // { 
+              //   icon: TrendingUp, 
+              //   text: 'AI-Powered Recommendations',
+              //   color: '#06B6D4'
+              // }
+            ].map((feature, index) => {
+              const FeatureIcon = feature.icon
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  style={{
+                    padding: 'clamp(1rem, 2.5vw, 1.25rem)',
+                    background: 'rgba(255, 255, 255, 0.15)',
+                    backdropFilter: 'blur(10px)',
+                    borderRadius: '1rem',
+                    border: '1px solid rgba(255, 255, 255, 0.3)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.75rem',
+                    justifyContent: 'center',
+                    boxShadow: '0 8px 20px rgba(0, 0, 0, 0.1)',
+                    cursor: 'default',
+                    transition: 'all 0.3s ease'
+                  }}
+                >
+                  <div style={{
+                    width: '36px',
+                    height: '36px',
+                    borderRadius: '50%',
+                    background: 'rgba(255, 255, 255, 0.25)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexShrink: 0
+                  }}>
+                    <FeatureIcon size={20} color="white" strokeWidth={2.5} />
+                  </div>
+                  <span style={{
+                    fontSize: 'clamp(0.95rem, 2vw, 1.05rem)',
+                    fontWeight: '600',
+                    textAlign: 'left',
+                    lineHeight: '1.4'
+                  }}>
+                    {feature.text}
+                  </span>
+                </motion.div>
+              )
+            })}
+          </motion.div>
+
+          {/* Bottom Stats */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            style={{
+              marginTop: 'clamp(2.5rem, 5vw, 3.5rem)',
+              padding: 'clamp(1.5rem, 3vw, 2rem)',
+              background: 'rgba(255, 255, 255, 0.1)',
+              backdropFilter: 'blur(10px)',
+              borderRadius: '1.25rem',
+              border: '1px solid rgba(255, 255, 255, 0.2)',
+              display: 'flex',
+              justifyContent: 'space-around',
+              flexWrap: 'wrap',
+              gap: 'clamp(1.5rem, 3vw, 2rem)'
+            }}
+          >
+            {[
+              { value: '100+', label: 'Products Listed' },
+              { value: '50+', label: 'Student Reviews' },
+              { value: '100+', label: 'Happy Users' }
+            ].map((stat, index) => (
+              <motion.div
                 key={index}
-                style={{
-                  padding: 'clamp(0.4rem, 1vw, 0.5rem) clamp(0.75rem, 2vw, 1.25rem)',
-                  background: 'rgba(255, 255, 255, 0.15)',
-                  backdropFilter: 'blur(10px)',
-                  borderRadius: '2rem',
-                  fontSize: 'clamp(0.8rem, 1.8vw, 0.95rem)',
-                  fontWeight: '600',
-                  border: '1px solid rgba(255, 255, 255, 0.3)',
-                  whiteSpace: 'nowrap',
-                  textAlign: 'center'
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
+                style={{ 
+                  textAlign: 'center',
+                  flex: '1 1 auto',
+                  minWidth: '120px'
                 }}
               >
-                {feature}
-              </div>
+                <div style={{ 
+                  fontSize: 'clamp(2rem, 5vw, 2.75rem)', 
+                  fontWeight: '800',
+                  marginBottom: '0.5rem',
+                  letterSpacing: '-0.02em',
+                  textShadow: '0 2px 10px rgba(0, 0, 0, 0.1)'
+                }}>
+                  {stat.value}
+                </div>
+                <div style={{ 
+                  opacity: 0.95,
+                  fontSize: 'clamp(0.95rem, 2vw, 1.05rem)',
+                  fontWeight: '500'
+                }}>
+                  {stat.label}
+                </div>
+              </motion.div>
             ))}
           </motion.div>
         </motion.div>
       </div>
 
       <style>{`
-        .text-center {
-          text-align: center;
+        @media (max-width: 768px) {
+          section {
+            padding: 3rem 0 !important;
+          }
         }
 
-        /* Mobile: Stack feature pills */
         @media (max-width: 640px) {
-          .container > div > div:last-child {
-            max-width: 100%;
-          }
-
-          .container > div > div:last-child > div {
-            flex: 1 1 100%;
-            max-width: 280px;
+          section > div > div > div:nth-of-type(4) {
+            grid-template-columns: 1fr !important;
           }
         }
 
         @media (max-width: 480px) {
-          .cta-circle-1,
-          .cta-circle-2 {
-            display: none;
+          section {
+            padding: 2.5rem 0 !important;
+          }
+
+          section > div {
+            padding: 0 1rem !important;
           }
         }
       `}</style>
